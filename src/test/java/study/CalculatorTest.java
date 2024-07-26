@@ -90,7 +90,7 @@ class CalculatorTest {
 	@Nested
 	public class CustomDelimiterTest {
 		@Test
-		@DisplayName("커스텀 구분자로 '-'를 입력한 경우")
+		@DisplayName("커스텀 구분자로 '-'를 입력한 경우 음수는 무시된다.")
 		void testCustomDelimiterWithMinus() {
 			// given
 			String text = "//-\n1-2-3-----4--5";
@@ -101,7 +101,7 @@ class CalculatorTest {
 		}
 
 		@Test
-		@DisplayName("커스텀 구분자로 ';'를 입력한 경우")
+		@DisplayName("커스텀 구분자로 ';'를 입력한 경우 구분자로 ; 를 사용한다.")
 		void testCustomDelimiterWithSemicolon() {
 			// given
 			String text = "//;\n1;2;3;;;;4;;5";
@@ -112,7 +112,7 @@ class CalculatorTest {
 		}
 
 		@Test
-		@DisplayName("커스텀 구분자로 '\\n'를 입력한 경우")
+		@DisplayName("커스텀 구분자로 '\\n'를 입력한 경우 구분자를 인식하지 못한다.")
 		void testCustomDelimiterWithNewLine() {
 			// given
 			String text = "//\n\n1\n2\n3\n\n\n\n4\n\n5";
@@ -122,7 +122,7 @@ class CalculatorTest {
 		}
 
 		@Test
-		@DisplayName("커스텀 구분자로 '/'를 입력한 경우")
+		@DisplayName("커스텀 구분자로 '/'를 입력한 경우 구분자를 인식한다.")
 		void testCustomDelimiterWithSlash() {
 			// given
 			String text = "///\n1/2/3/////4//5";
@@ -134,7 +134,7 @@ class CalculatorTest {
 
 		// '문자' 니까 문자열에 대해서는 거부?
 		@Test
-		@DisplayName("커스텀 구분자로 문자열 입력한 경우")
+		@DisplayName("커스텀 구분자로 문자열 입력한 경우 구분자를 인식하지 못한다.")
 		void testCustomDelimiterWithString() {
 			// given
 			String text = "//abc\n1abc2";
